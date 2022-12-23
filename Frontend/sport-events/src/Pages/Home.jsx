@@ -53,20 +53,7 @@ export default function Home() {
   ]);
 
   const handleShowFilter = () => setShowFilter(!showFilter);
-  const handleRatingSort = () => {
-    // sort in decending order
-    if (sortRating === 1) {
-      setUrl(
-        `https://sports-event-server.onrender.com/api/event?sortBy=rating&sortOrder=desc`
-      );
-    }
-    // sort in assending order
-    else if (sortRating === 2) {
-      setUrl(
-        `https://sports-event-server.onrender.com/api/event?sortBy=rating&sortOrder=asc`
-      );
-    }
-  };
+
   const handleInputSearch = (search) => {
     setUrl(
       `https://sports-event-server.onrender.com/api/event?search=${search}`
@@ -109,7 +96,7 @@ export default function Home() {
         urlForFilter += "2FSP56";
       }
       setUrl(urlForFilter);
-      console.log("url", url);
+      console.log("url", url, allData);
     } else {
       setUrl("https://sports-event-server.onrender.com/api/event/");
     }
@@ -169,36 +156,28 @@ export default function Home() {
               border="1px solid #dae3ed"
               borderRadius="8px"
               p="1"
-              onClick={() => {
-                setSortRating(2);
-                handleRatingSort();
+              value="2"
+              onClick={(e) => {
+                setUrl(
+                  `https://sports-event-server.onrender.com/api/event?sortBy=rating&sortOrder=asc`
+                );
               }}
               m="3px"
             >
-              <CFaChevronUp
-                onClick={() => {
-                  setSortRating(2);
-                  handleRatingSort();
-                }}
-                color="gray.300"
-              />
+              <CFaChevronUp color="gray.300" />
             </Button>
             <Button
               border="1px solid #dae3ed"
               p="1"
-              onClick={() => {
-                setSortRating(1);
-                handleRatingSort();
+              value="1"
+              onClick={(e) => {
+                setUrl(
+                  `https://sports-event-server.onrender.com/api/event?sortBy=rating&sortOrder=desc`
+                );
               }}
               borderRadius="8px"
             >
-              <CFaChevronDown
-                onClick={() => {
-                  setSortRating(1);
-                  handleRatingSort();
-                }}
-                color="gray.300"
-              />
+              <CFaChevronDown color="gray.300" />
             </Button>
           </Box>
         </Box>
