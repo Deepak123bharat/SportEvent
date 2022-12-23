@@ -23,12 +23,19 @@ const AllRoutes = () => {
         <Route path="/events/search" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/userevents" element={<UserEvents />} />
         <Route
           path="/addevent"
           element={
             <Privateroute>
               <AddEditEvent />
+            </Privateroute>
+          }
+        />
+        <Route
+          path="/userevents"
+          element={
+            <Privateroute>
+              <UserEvents />
             </Privateroute>
           }
         />

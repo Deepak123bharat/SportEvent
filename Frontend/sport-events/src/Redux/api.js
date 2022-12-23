@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:3050/api" });
+const API = axios.create({
+  baseURL: "https://sports-event-server.onrender.com/api",
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {

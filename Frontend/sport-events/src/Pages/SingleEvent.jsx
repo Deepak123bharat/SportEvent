@@ -22,7 +22,7 @@ export default function SingleEvent() {
         });
     };
 
-    fetchData(`http://localhost:3050/api/event/` + id);
+    fetchData(`https://sports-event-server.onrender.com/api/event/` + id);
   }, []);
 
   let date = new Date(data.timming);

@@ -41,7 +41,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(true);
   const [sortRating, setSortRating] = useState(0);
-  const [url, setUrl] = useState("http://localhost:3050/api/event/");
+  const [url, setUrl] = useState(
+    "https://sports-event-server.onrender.com/api/event/"
+  );
   const [checkedItems, setCheckedItems] = React.useState([
     false,
     false,
@@ -54,15 +56,21 @@ export default function Home() {
   const handleRatingSort = () => {
     // sort in decending order
     if (sortRating === 1) {
-      setUrl(`http://localhost:3050/api/event?sortBy=rating&sortOrder=desc`);
+      setUrl(
+        `https://sports-event-server.onrender.com/api/event?sortBy=rating&sortOrder=desc`
+      );
     }
     // sort in assending order
     else if (sortRating === 2) {
-      setUrl(`http://localhost:3050/api/event?sortBy=rating&sortOrder=asc`);
+      setUrl(
+        `https://sports-event-server.onrender.com/api/event?sortBy=rating&sortOrder=asc`
+      );
     }
   };
   const handleInputSearch = (search) => {
-    setUrl(`http://localhost:3050/api/event?search=${search}`);
+    setUrl(
+      `https://sports-event-server.onrender.com/api/event?search=${search}`
+    );
   };
   useEffect(() => {
     const fetchData = async (url) => {
@@ -86,7 +94,8 @@ export default function Home() {
       checkedItems[3] === true ||
       checkedItems[4] === true
     ) {
-      let urlForFilter = "http://localhost:3050/api/event?search=";
+      let urlForFilter =
+        "https://sports-event-server.onrender.com/api/event?search=";
       console.log(checkedItems);
       if (checkedItems[4] === true) {
         urlForFilter += "2FSP5";
@@ -102,7 +111,7 @@ export default function Home() {
       setUrl(urlForFilter);
       console.log("url", url);
     } else {
-      setUrl("http://localhost:3050/api/event/");
+      setUrl("https://sports-event-server.onrender.com/api/event/");
     }
   };
 

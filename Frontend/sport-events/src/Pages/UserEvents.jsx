@@ -16,7 +16,7 @@ export default function UserEvents() {
         });
     };
 
-    fetchData(`http://localhost:3050/api/user/` + userId);
+    fetchData(`https://sports-event-server.onrender.com/api/user/` + userId);
   }, []);
   console.log("data", data);
 
