@@ -25,7 +25,7 @@ app.use(auth);
 app.use("/api/user", userRouter);
 app.use("/api/event", eventRouter);
 
-app.get("*", express.static("public"));
+// app.get("*", express.static("public"));
 
 connectDatabase().then(() => {
   app.listen(3050, () => {
