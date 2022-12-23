@@ -173,6 +173,8 @@ export default function SingleEvent() {
                           color="white"
                           onClick={() => {
                             data.players[index].requestStatus = "Accepted";
+                            delete data.players[index];
+                            data.players = data.players.filter((a) => a);
                             dispatch(updateEvent({ id: data._id, data }));
                             setData({ ...data });
                           }}
